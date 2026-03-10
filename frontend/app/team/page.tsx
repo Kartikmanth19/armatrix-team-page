@@ -19,7 +19,7 @@ export default function TeamPage() {
     }
   }
 
-  const removeMember = async (id) => {
+  const removeMember = async (id : number) => {
     try {
       await deleteMember(id)
       fetchTeam()
