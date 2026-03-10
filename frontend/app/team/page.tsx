@@ -6,9 +6,18 @@ import TeamCard from "../../components/TeamCard"
 import AddMemberModal from "../../components/AddMemberModal"
 import Navbar from "../../components/Navbar"
 
+type TeamMember = {
+  id: number
+  name: string
+  role: string
+  bio: string
+  photo: string
+  linkedin: string
+}
+
 export default function TeamPage() {
 
-  const [team, setTeam] = useState([])
+  const [team, setTeam] = useState<TeamMember[]>([])
 
   const fetchTeam = async () => {
     try {
@@ -19,7 +28,7 @@ export default function TeamPage() {
     }
   }
 
-  const removeMember = async (id : number) => {
+  const removeMember = async (id: number) => {
     try {
       await deleteMember(id)
       fetchTeam()
